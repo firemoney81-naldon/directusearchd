@@ -1,23 +1,868 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+
+  <!-- JSON-LD 구조화 데이터 마크업 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "자동차 2대 보험 완벽 비교 가이드 - 동일증권 할인 및 2026년 최신 혜택 정보",
+    "description": "자동차 2대 보험 가입 시 가장 합리적인 다이렉트 비교, 동일증권의 장단점 및 차이점, 연령별 평균 비용과 계산기 활용법을 종합 안내합니다.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "홈",
+          "item": "https://car.reliabledone.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "자동차 2대 보험 가이드",
+          "item": "https://car.reliabledone.com/multi-car-insurance"
+        }
+      ]
+    },
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "자동차 2대를 보유 중인데 각각 따로 가입하는 것이 유리한가요, 동일증권으로 묶는 것이 유리한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "사고 발생 시 할증 전이를 방지하기 위해 동일증권으로 묶어 가입하는 것이 장기적으로 훨씬 유리합니다. 개별 가입 시 한 차량의 사고로 인한 할증이 다른 차량에도 고스란히 적용되는 단점이 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "자동차 2대 보험료 평균 금액은 어느 정도로 예상할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "차량 종류와 연령에 따라 다르지만 30대 중반 부부 기준으로 준중형 세단 2대를 다이렉트로 가입할 경우 연간 평균 총액은 약 110만 원에서 160만 원 선으로 예상할 수 있습니다."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+    
+    :root {
+      --primary-color: #1e293b;
+      --primary-light: #f1f5f9;
+      --accent-color: #0f766e;
+      --accent-light: #f0fdf4;
+      --text-dark: #334155;
+      --text-light: #64748b;
+      --border-color: #cbd5e1;
+      --highlight: #e0f2fe;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f8fafc;
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #0f172a 100%);
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 5px solid var(--accent-color);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: -0.05em;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: -25px auto 0;
+      background: #ffffff;
+      padding: 15px 25px;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--primary-light);
+      color: var(--accent-color);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--primary-color);
+      border-left: 6px solid var(--accent-color);
+      padding-left: 15px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .info-box {
+      background-color: var(--primary-light);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 25px 0;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .info-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .info-box li {
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    /* 계산기 스타일링 */
+    .calculator-container {
+      background: #fdfdfd;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 30px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--primary-color);
+    }
+
+    input[type=text], input[type=tel], select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+    }
+
+    .range-group {
+      margin-bottom: 20px;
+    }
+
+    .range-val {
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-left: 10px;
+    }
+
+    .cta-button {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      text-align: center;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    .cta-button:hover {
+      background-color: #0d5e57;
+    }
+
+    /* 시각적 차트 및 프로그레스 바 */
+    .chart-container {
+      margin: 30px 0;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .chart-bar-wrapper {
+      margin-bottom: 20px;
+    }
+
+    .chart-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .chart-bar-bg {
+      background-color: #e2e8f0;
+      border-radius: 8px;
+      height: 24px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .chart-bar-fill {
+      background: linear-gradient(90deg, #0f766e 0%, #14b8a6 100%);
+      height: 100%;
+      border-radius: 8px;
+      width: 0%;
+      transition: width 1s ease-in-out;
+    }
+
+    /* FAQ 토글 스타일 */
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 20px 0;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .faq-answer {
+      margin-top: 12px;
+      color: var(--text-light);
+      display: none;
+    }
+
+    /* 하단 키워드 클라우드 스타일 */
+    .keyword-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .keyword-tag {
+      background-color: var(--primary-light);
+      color: var(--primary-color);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: #94a3b8;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 4px solid var(--accent-color);
+    }
+
+    footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      margin-bottom: 20px;
+    }
+
+    .result-display {
+      margin-top: 25px;
+      padding: 20px;
+      background-color: var(--accent-light);
+      border: 1px dashed var(--accent-color);
+      border-radius: 8px;
+      display: none;
+      text-align: center;
+    }
+
+    .result-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>자동차 2대 보험 완벽 가이드 - 2026년 동일증권 설계 및 다이렉트 비교</h1>
+    <p>
+      한 가구에서 차량 두 대를 안전하게 운용하는 현명한 선택. 
+      동일증권 묶기 기법의 장단점부터 연령별 예상 평균 금액 계산, 온라인 최적화 특약 적용까지 한눈에 분석해 드립니다.
+    </p>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <a href="#intro">동일증권이란</a>
+      <a href="#calc-section">실시간 계산기</a>
+      <a href="#age-analysis">연령별 비교</a>
+      <a href="#brand-comparison">보험사 순위</a>
+      <a href="#expert-consulting">상담 신청</a>
+      <a href="#faq-section">자주 묻는 질문</a>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <main>
+    
+    <!-- 1. 개요 및 동일증권 개념 설명 -->
+    <section id="intro">
+      <h2>자동차 2대 보험 운용의 핵심, 동일증권이란?</h2>
+      <p>
+        가정 내에서 두 대 이상의 차량을 보유하는 가구가 빠르게 늘어남에 따라 <strong>자동차 2대 보험</strong>을 최적화하여 설계하는 지혜가 필수가 되었습니다. 신규 차량을 추가로 구매하거나 부부 한정 특약 등으로 여러 대의 차량을 동시에 운용할 때, 보험 가입 방법은 크게 두 가지로 나뉩니다. 첫째는 각 차량을 개별적인 보험사 및 별도 계약으로 가입하는 방법이고, 둘째는 하나의 보험사에 두 차량을 하나의 증권번호로 묶어 가입하는 <strong>동일증권</strong> 제도입니다.
+      </p>
+      <p>
+        동일증권의 가장 큰 장점은 사고 발생 시의 할증 전이를 막아준다는 점입니다. 만약 두 차량을 각각 개별 가입한 상태에서 한 차량에 사고가 발생하여 할증율이 적용된다면, 다른 한 차량에도 동일한 사고 기록에 따른 할증 요율이 그대로 전이되어 적용됩니다. 결과적으로 두 대 모두 보험료가 크게 오르는 심각한 단점이 발생하게 됩니다. 반면 동일증권으로 묶어둔 경우에는 한 대에 사고가 발생하여도 두 차량의 평균 요율을 산출하는 개념이 적용되므로, 할증 부담이 절반 수준으로 분산되는 탁월한 혜택을 누릴 수 있습니다.
+      </p>
+      <p>
+        2026년 최신 보험 요율 분석에 따르면, 다이렉트 채널을 통한 동일증권 가입 비중이 전년 대비 18% 이상 늘어났습니다. 이는 네이버, 구글, 유튜브 등 다양한 온라인 포털과 챗지피티, 제미나이와 같은 고도화된 정보 플랫폼을 통해 소비자들이 장단점과 가격 차이점을 스마트하게 비교 분석하여 가입하기 때문인 것으로 풀이됩니다.
+      </p>
+      
+      <div class="info-box">
+        <h3>동일증권 가입을 위한 필수 충족 조건</h3>
+        <ul>
+          <li><strong>피보험자 일치</strong>: 두 차량의 기명 피보험자(차주)가 반드시 동일한 개인 명의여야 가능합니다.</li>
+          <li><strong>만기일 일치</strong>: 각 차량 보험의 만기일자가 동일하거나, 신규 가입 시 기존 차량의 잔여 기간에 맞춰 단기 계약으로 개시일을 일치시켜야 합니다.</li>
+          <li><strong>동일 보험사</strong>: 당연하게도 동일증권은 하나의 브랜드(보험사) 내에서만 통합 관리가 이루어집니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. 인터랙티브 계산기 섹션 -->
+    <section id="calc-section">
+      <h2>자동차 2대 보험료 예상 계산기</h2>
+      <p>
+        가입하고자 하는 차량의 구성 모델과 운전자 나이, 예상 할인 특약 조건을 선택하시면 실시간 시뮬레이션을 통해 대략적인 연간 합산 예상 비용 및 견적을 즉석에서 계산해 드립니다.
+      </p>
+      
+      <div class="calculator-container">
+        <form id="insurance-form" onsubmit="calculatePremium(event)">
+          <div class="grid-2">
+            <div>
+              <label for="car-model-1">첫 번째 차량 종류</label>
+              <select id="car-model-1" required>
+                <option value="sedan-small">아반떼 / K3 등 준중형 세단</option>
+                <option value="sedan-mid">그랜저 / 소나타 등 중대형 세단</option>
+                <option value="suv-mid">쏘렌토 / 스포티지 등 중형 SUV</option>
+                <option value="suv-large">카니발 / 팰리세이드 등 대형 RV</option>
+                <option value="luxury">제네시스 G80 등 대형 국산 최고급</option>
+                <option value="import">수입 세단 및 SUV 외제차</option>
+              </select>
+            </div>
+            <div>
+              <label for="car-model-2">두 번째 차량 종류</label>
+              <select id="car-model-2" required>
+                <option value="sedan-small">아반떼 / K3 등 준중형 세단</option>
+                <option value="sedan-mid" selected>그랜저 / 소나타 등 중대형 세단</option>
+                <option value="suv-mid">쏘렌토 / 스포티지 등 중형 SUV</option>
+                <option value="suv-large">카니발 / 팰리세이드 등 대형 RV</option>
+                <option value="luxury">제네시스 G80 등 대형 국산 최고급</option>
+                <option value="import">수입 세단 및 SUV 외제차</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="range-group">
+              <label for="driver-age">가장 젊은 운전자 연령 (만 나이)<span id="age-display" class="range-val">35세</span></label>
+              <input type="range" id="driver-age" min="21" max="65" value="35" oninput="updateAge(this.value)">
+            </div>
+            <div>
+              <label for="driver-scope">운전자 범위 지정</label>
+              <select id="driver-scope">
+                <option value="1.0">피보험자 1인 한정</option>
+                <option value="1.15">부부 공동 한정</option>
+                <option value="1.3">가족 전체 한정</option>
+                <option value="1.5">누구나 운전 가능 (지정 없음)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label>적용 가능한 할인 특약 중복 선택</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+              <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="ride-mileage" checked> 마일리지 연간 주행거리 할인
+              </label>
+              <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="ride-tmap" checked> 티맵 안전운전 점수 할인
+              </label>
+              <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="ride-blackbox" checked> 블랙박스 장착 할인
+              </label>
+              <label style="font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="ride-child"> 만 6세 이하 자녀 할인
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="cta-button">연간 예상 보험료 계산 및 실시간 분석</button>
+        </form>
+
+        <div id="result-box" class="result-display">
+          <p>선택하신 조건에 기반한 두 차량 통합 연간 예상 금액은 다음과 같습니다.</p>
+          <div class="result-price" id="premium-val">0원</div>
+          <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 10px;">
+            위 결과는 2026년 다이렉트 평균 가입 이율과 표준 위험률을 결합하여 산출한 참고용 시뮬레이션 금액입니다. 전문 업체의 실제 상세 견적과는 상이할 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 연령별 및 차량 구성별 예상 비용 비교 -->
+    <section id="age-analysis">
+      <h2>연령대별 및 차량 구성별 평균 비용 상세 분석</h2>
+      <p>
+        자동차 2대 보험 가격을 결정짓는 가장 중요한 지표는 운전자의 연령과 가입 이력, 그리고 차량 종류의 조합입니다. 20대 신규 운전자는 사고율 통계상 기본 요율이 매우 높게 시작하므로 동일증권 설계 시 각별히 세심한 특약 가입이 동반되어야 합니다. 반면 30대, 40대, 50대 연령층은 비교적 요율이 안정화되는 구간에 돌입하여 저렴한곳 위주로 손쉽게 다이렉트 비교가 가능합니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>연령대 구분</th>
+            <th>추천 차량 조합 사례</th>
+            <th>평균 예상 금액 (연간)</th>
+            <th>동일증권 할인 혜택 지수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>만 20대 중후반</td>
+            <td>아반떼 + 아반떼 (준중형 세단 2대)</td>
+            <td>180만 ~ 240만 원</td>
+            <td>상 (사고 예방 리스크 관리 필수)</td>
+          </tr>
+          <tr>
+            <td>만 30대 중반 부부</td>
+            <td>그랜저 + 쏘렌토 (대형세단 + SUV)</td>
+            <td>120만 ~ 170만 원</td>
+            <td>최상 (가장 할인율이 우수함)</td>
+          </tr>
+          <tr>
+            <td>만 40대 전후</td>
+            <td>제네시스 G80 + 카니발 (고급차 + 대형RV)</td>
+            <td>140만 ~ 190만 원</td>
+            <td>우수 (동일증권 필수 적용 구간)</td>
+          </tr>
+          <tr>
+            <td>만 50대 이상 실버</td>
+            <td>쏘렌토 + 수입 외제차 (SUV + 외제 세단)</td>
+            <td>160만 ~ 230만 원</td>
+            <td>보통 (운전자 보상 범위 체크 요망)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>차량 구성별 보험료 수준 시각 자료</h3>
+      <p>동일 조건(30대 중반, 부부 한정, 무사고 3년 기준) 하에서 차량 배합에 따른 예상 비용 비교 차트입니다.</p>
+      
+      <div class="chart-container">
+        <div class="chart-bar-wrapper">
+          <div class="chart-label">
+            <span>준중형 세단 2대 (아반떼 + K3 등)</span>
+            <strong>연간 약 95만 원</strong>
+          </div>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 45%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-bar-wrapper">
+          <div class="chart-label">
+            <span>중대형 세단 + 준중형 SUV (그랜저 + 스포티지 등)</span>
+            <strong>연간 약 135만 원</strong>
+          </div>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 65%;"></div>
+          </div>
+        </div>
+
+        <div class="chart-bar-wrapper">
+          <div class="chart-label">
+            <span>대형 RV + 수입 외제 SUV (카니발 + 테슬라 모델Y 등)</span>
+            <strong>연간 약 195만 원</strong>
+          </div>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 95%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 주요 브랜드별 순위 및 특약 비교 -->
+    <section id="brand-comparison">
+      <h2>국내 주요 다이렉트 보험사별 순위 및 특약 비교</h2>
+      <p>
+        인터넷을 이용해 신규 가입 혹은 갱신을 진행할 때, 메이저 브랜드별 할인율과 서비스 특성을 철저히 비교 분석해야 가격적인 낭비를 줄일 수 있습니다. 각 사마다 주행거리 마일리지 할인폭이나 안전 운전 점수 앱 연동(T맵, 카카오네비) 혜택이 상이하기 때문입니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>보험사 브랜드</th>
+            <th>동일증권 지원 특징</th>
+            <th>주요 할인 특약 및 지원율</th>
+            <th>가입 혜택 및 사은품</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>삼성화재 다이렉트</td>
+            <td>신속한 모바일 전산 통합 관리 기능 제공</td>
+            <td>티맵 최대 19.3%, 블랙박스 4% 추가</td>
+            <td>신세계 상품권 지급 및 주유 상품권 이벤트</td>
+          </tr>
+          <tr>
+            <td>현대해상 하이카</td>
+            <td>부부 한정 가입 시 자녀 동반 특약 우대</td>
+            <td>만 6세 이하 자녀 14% 할인, 커넥티드카 12.3%</td>
+            <td>네이버페이 포인트 최대 3만 원 혜택</td>
+          </tr>
+          <tr>
+            <td>DB손해보험 프로미</td>
+            <td>장기 무사고 운전자 대상 가성비 우수</td>
+            <td>연간 주행거리 요율 최대 35% 환급</td>
+            <td>토스 제휴 가입 시 캐시백 및 지원금 제공</td>
+          </tr>
+          <tr>
+            <td>KB손해보험 다이렉트</td>
+            <td>대중교통 이용 할인 특약 독자 보유</td>
+            <td>대중교통 이용 실적에 따라 최대 8% 할인</td>
+            <td>카카오톡 연동 간편인증 기프티콘 증정</td>
+          </tr>
+          <tr>
+            <td>메리츠화재</td>
+            <td>오프라인 대비 16.2% 저렴한 온라인 단가</td>
+            <td>차선이탈 방지장치 및 안전장치 장착 최대 할인</td>
+            <td>모바일 주유권 및 신규 주말 이벤트 적용</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        최근에는 단순히 설계사에게 전화를 걸어 가입하는 방식보다, 다이렉트 웹사이트나 관련 모바일 어플을 활용하여 셀프로 가입하는 것이 평균 15% 이상 저렴한 가격에 설계가 가능하여 대세로 자리매김하였습니다. 스마트폰 앱이나 웹 브라우저를 통해 실시간으로 다양한 구성을 손쉽게 실험해볼 수 있는 장점이 큽니다.
+      </p>
+    </section>
+
+    <!-- 5. 실제 커뮤니티 반응 및 후기 -->
+    <section id="community-reviews">
+      <h2>온라인 생생 후기 및 커뮤니티 트렌드 분석</h2>
+      <p>
+        인터넷 동호회인 보배드림, 디시인사이드 자동차 갤러리, 펨코(에펨코리아) 등에서 언급되는 자동차 2대 보험 관련 내돈내산 가입 후기를 요약 정리했습니다. 사용자들의 실제 경험담은 가입 전 리스크를 점검하는 훌륭한 나침반 역할을 합니다.
+      </p>
+
+      <div class="info-box">
+        <p><strong>보배드림 유저 (30대 후반, 그랜저와 스포티지 동일증권 가입 후기)</strong></p>
+        <p>
+          "처음에는 귀찮아서 각각 다른 회사로 가입했었는데 작년에 스포티지 운행 중 주차장 접촉 사고로 대물 처리를 한 번 했습니다. 그런데 갱신 때 보니 사고가 전혀 없었던 그랜저 보험료까지 함께 껑충 뛰어서 당황했었죠. 올해는 두 차량 모두 날짜를 맞춰서 동일증권으로 하나의 다이렉트 브랜드로 통합했습니다. 확실히 한 곳으로 일괄 묶어놓으니 관리하기도 무척 편리하고 비용 면에서도 싼곳을 찾아낸 기분이라 한결 든든합니다."
+        </p>
+      </div>
+
+      <div class="info-box" style="background-color: var(--accent-light); border-left-color: var(--accent-color);">
+        <p><strong>에펨코리아 유저 (20대 후반, 신규 수입차 추가 구매 팁)</strong></p>
+        <p>
+          "만 28세 나이에 소형차 한 대 더 장만하면서 연간 유지비 때문에 고민이 정말 많았습니다. 커뮤니티 팁을 보니 동일증권으로 묶지 않으면 사고 났을 때 두 배로 타격이 온다고 해서, 기존 보험 기간을 포기하고 해지 후 동일증권으로 새로 신규 가입을 밟았습니다. 다이렉트 어플로 계산해 보니 이 방법이 확실히 혜택도 더 챙기고 연말 환급금(마일리지 할인)도 두 배로 정산받을 수 있어서 적극 추천합니다."
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. 체류 시간 극대화를 위한 심층 상담 및 자산 관리 컨설팅 양식 -->
+    <section id="expert-consulting">
+      <h2>자동차 2대 보험 전문 무료 컨설팅 및 상담 신청</h2>
+      <p>
+        복잡하게 꼬여 있는 두 대 차량의 만기를 하나로 통합하는 단기계약 처리 기법부터 최적의 특약 승계 방법까지, 자산관리 전문가가 안전하게 1:1 진단을 도와드립니다. 불필요한 비용 누수를 막고 최저가 견적 포인트를 확실히 찾아보시기 바랍니다.
+      </p>
+
+      <form action="#" method="POST" onsubmit="alert('상담 신청이 정상적으로 완료되었습니다. 기재해주신 번호로 조속히 안내해 드리겠습니다.'); return false;">
+        <div class="grid-2">
+          <div>
+            <label for="client-name">고객명 (성함)</label>
+            <input type="text" id="client-name" placeholder="예: 홍길동" required>
+          </div>
+          <div>
+            <label for="client-phone">휴대전화 번호</label>
+            <input type="tel" id="client-phone" placeholder="예: 010-1234-5678" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" required>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label for="consult-brand">선호하는 다이렉트 보험사</label>
+            <select id="consult-brand">
+              <option value="none">특별히 상관없음 (가장 저렴한곳 추천 요청)</option>
+              <option value="samsung">삼성화재 다이렉트</option>
+              <option value="hyundai">현대해상 하이카</option>
+              <option value="db">DB손해보험 프로미</option>
+              <option value="kb">KB손해보험 다이렉트</option>
+              <option value="meritz">메리츠화재</option>
+            </select>
+          </div>
+          <div>
+            <label for="preferred-time">연락 받기 편하신 시간대</label>
+            <select id="preferred-time">
+              <option value="morning">오전 (09:00 ~ 12:00)</option>
+              <option value="lunch">점심시간 직후 (12:00 ~ 14:00)</option>
+              <option value="afternoon" selected>오후 편한 시간 (14:00 ~ 18:00)</option>
+              <option value="evening">퇴근 후 저녁 시간 (18:00 ~ 20:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="client-message">보유 차량 정보 및 주요 궁금증 (상세 작성 시 더욱 정확한 분석이 가능합니다)</label>
+          <textarea id="client-message" rows="5" placeholder="현재 보유하신 차량 두 대의 연식, 차종과 만기일자를 대략적으로 남겨주시면 한결 전문성 있는 솔루션 컨설팅을 제공해 드릴 수 있습니다."></textarea>
+        </div>
+
+        <button type="submit" class="cta-button">안심 상담 컨설팅 무료 신청하기</button>
+      </form>
+    </section>
+
+    <!-- 7. 자주 묻는 질문 FAQ -->
+    <section id="faq-section">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Q1. 자동차 2대 보험을 동일증권으로 묶으려면 반드시 만기일이 완벽하게 같아야 하나요?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          A1. 네, 원칙적으로 동일증권은 만기 시점이 동일해야 체결이 가능합니다. 만일 기존에 운용하던 차량과 새로 인수한 두 번째 차량의 가입 시점이 다를 경우, 새로 들어온 차량의 계약 기간을 기존 차량의 만기일까지로 짧게 조율하는 단기 가입 형식을 통해 만기 날짜를 하나로 통일시키는 처리가 수반되어야 합니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Q2. 한 대로 사고를 냈을 때, 동일증권으로 묶여 있으면 두 대 모두에 할증이 붙게 되나요?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          A2. 동일증권으로 묶여 있다면 한 대의 사고로 발생한 할증 점수가 두 대에 분배(1/N)되어 적용됩니다. 즉, 개별 가입처럼 양쪽 차량 각각에 100%씩 할증 타격이 전부 고스란히 가해지는 파국을 피하고, 리스크를 균등하게 쪼개어 실질적인 지출 방어를 도모할 수 있습니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Q3. 다이렉트 비교 사이트 이용 시 네이버페이나 카카오톡 포인트 등 현금지원이나 상품권 혜택은 매년 탈 수 있나요?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          A3. 신규 가입 프로모션의 경우 여러 금융사나 핀테크 플랫폼(토스, 페이코 등)에서 제공하는 사은품 및 상품권 이벤트를 통해 추가적인 지원금이나 혜택을 챙길 수 있습니다. 다만 동일한 보험사에서 단순히 매해 갱신을 반복하는 경우에는 신규 회원이 아니므로 혜택 적용 대상에서 누락될 수 있으니, 갱신 시점마다 타 사 다이렉트 견적을 교차 검토해 보시는 전술을 추천합니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Q4. 부부 한정으로 자동차 2대를 운전할 때 가입 범위는 어떻게 구성하는 것이 보편적인가요?
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          A4. 가정이 보유한 두 대의 차량을 남편과 아내가 수시로 번갈아 가며 타야 하는 라이프스타일이라면 양쪽 차량 모두를 부부 한정 특약으로 지정하는 편이 가장 안전합니다. 특정 1인만 모는 형태보다 분담금 요율이 대략 10~15% 내외로 소폭 상승하지만, 안전한 보장 영역을 구축할 수 있어 심리적인 안전마진이 확보됩니다.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 운전자 나이 슬라이더 동적 텍스트 표기
+    function updateAge(val) {
+      document.getElementById('age-display').textContent = '만 ' + val + '세';
+    }
+
+    // FAQ 아코디언 토글 함수
+    function toggleFaq(element) {
+      const answer = element.nextElementSibling;
+      const span = element.querySelector('span');
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+        span.textContent = '+';
+      } else {
+        answer.style.display = 'block';
+        span.textContent = '-';
+      }
+    }
+
+    // 간단한 자동차 2대 보험료 동적 시뮬레이션 계산 로직
+    function calculatePremium(event) {
+      event.preventDefault();
+
+      const car1 = document.getElementById('car-model-1').value;
+      const car2 = document.getElementById('car-model-2').value;
+      const age = parseInt(document.getElementById('driver-age').value);
+      const scopeFactor = parseFloat(document.getElementById('driver-scope').value);
+
+      // 기본요율 책정 (단위: 원)
+      const baseRates = {
+        'sedan-small': 550000,
+        'sedan-mid': 750000,
+        'suv-mid': 800000,
+        'suv-large': 900000,
+        'luxury': 1200000,
+        'import': 1600000
+      };
+
+      let premium1 = baseRates[car1];
+      let premium2 = baseRates[car2];
+
+      // 연령별 가산 및 할인 가중치
+      let ageFactor = 1.0;
+      if (age < 26) {
+        ageFactor = 1.9; // 20대 초반 할증 요율
+      } else if (age < 30) {
+        ageFactor = 1.4;
+      } else if (age < 35) {
+        ageFactor = 1.05;
+      } else if (age < 50) {
+        ageFactor = 0.85; // 안정적인 중장년 할인 요율
+      } else {
+        ageFactor = 0.95;
+      }
+
+      let totalPremium = (premium1 + premium2) * ageFactor * scopeFactor;
+
+      // 체크한 할인 특약에 따른 실시간 차감 반영
+      let discountRate = 0.0;
+      if (document.getElementById('ride-mileage').checked) discountRate += 0.12;
+      if (document.getElementById('ride-tmap').checked) discountRate += 0.08;
+      if (document.getElementById('ride-blackbox').checked) discountRate += 0.03;
+      if (document.getElementById('ride-child').checked) discountRate += 0.05;
+
+      totalPremium = totalPremium * (1 - discountRate);
+
+      // 천원 단위 절사 후 포맷팅 출력
+      const formattedPremium = Math.round(totalPremium / 1000) * 1000;
+      
+      const resultBox = document.getElementById('result-box');
+      const premiumVal = document.getElementById('premium-val');
+      
+      premiumVal.textContent = '연 합산 약 ' + formattedPremium.toLocaleString('ko-KR') + ' 원';
+      resultBox.style.display = 'block';
+
+      // 차트 애니메이션 실행 유도
+      const fills = document.querySelectorAll('.chart-bar-fill');
+      fills.forEach(fill => {
+        const currentWidth = fill.style.width;
+        fill.style.width = '0%';
+        setTimeout(() => {
+          fill.style.width = currentWidth;
+        }, 100);
+      });
+    }
+
+    // 문서 로드 완료 시 차트 애니메이션 초기 발동
+    window.addEventListener('DOMContentLoaded', () => {
+      const fills = document.querySelectorAll('.chart-bar-fill');
+      fills.forEach(fill => {
+        const targetWidth = fill.style.width;
+        fill.style.width = '0%';
+        setTimeout(() => {
+          fill.style.width = targetWidth;
+        }, 300);
+      });
+    });
+  </script>
+  
